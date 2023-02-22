@@ -4,14 +4,14 @@ import com.company.app.model.Car;
 
 import java.util.List;
 
-public interface TodoService {
-    List<Car> getTodos();
+public interface CarService {
+    List<Car> getCars();
 
-    Car getTodoById(Long id);
+    Car getCarById(Long id);
 
     Car insert(Car todo);
 
-    void updateTodo(Long id, Car todo);
+    void updateCar(Long id, Car todo);
 
-    void deleteTodo(Long todoId);
+    void deleteCar(Long todoId);
 }

@@ -19,7 +19,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class CarModel {
+public class Car {
     @Id
     @GeneratedValue
     @Column(updatable = false, nullable = false)
