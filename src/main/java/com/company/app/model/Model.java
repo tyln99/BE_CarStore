@@ -40,8 +40,7 @@ public class Model {
     Status status;
 
     @OneToOne
-    @JoinColumn(name="id")
-    @Column(name = "brand_id")
+    @JoinColumn(name="brand_id", nullable = false)
     Brand brand;
 
     @Column(name = "release_date")
