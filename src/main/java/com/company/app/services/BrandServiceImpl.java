@@ -36,7 +36,7 @@ public class BrandServiceImpl implements BrandService {
         try {
             Optional<Brand> brandOpt = brandRepository.findById(id);
             if (brandOpt.isEmpty()) {
-                throw new Exception(String.format("Brand %s is not found", id));
+                throw new Exception(String.format("Brand %s not found", id));
             }
             return brandOpt.get();
         } catch (Exception exception) {
@@ -61,7 +61,7 @@ public class BrandServiceImpl implements BrandService {
             logger.info(String.format("Update brand %s", id));
             Optional<Brand> brandOpt = brandRepository.findById(id);
             if (brandOpt.isEmpty()) {
-                throw new Exception(String.format("Brand %s is not found", id));
+                throw new Exception(String.format("Brand %s not found", id));
             }
             Brand brandFromDb = brandOpt.get();
             brandFromDb.setStatus(brand.getStatus());

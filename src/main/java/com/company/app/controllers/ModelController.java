@@ -11,6 +11,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/model")
+@CrossOrigin
 public class ModelController {
     ModelService modelService;
 
@@ -22,6 +23,16 @@ public class ModelController {
     public ResponseEntity<List<Model>> getAllModels() {
         try {
             List<Model> models = modelService.getModels();
+            return new ResponseEntity<>(models, HttpStatus.OK);
+        } catch (Exception exception) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping({"/getByBrand"})
+    public ResponseEntity<List<Model>> getModelsByBrand(@RequestParam("brandId") String brandId) {
+        try {
+            List<Model> models = modelService.getModelsByBrand(Integer.valueOf(brandId));
             return new ResponseEntity<>(models, HttpStatus.OK);
         } catch (Exception exception) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
