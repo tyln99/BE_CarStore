@@ -32,6 +32,18 @@ public class ModelServiceImpl implements ModelService {
     }
 
     @Override
+    public List<Model> searchByName(String name) throws Exception {
+        try {
+            List<Model> models = new ArrayList<>();
+            modelRepository.searchByName(name).forEach(models::add);
+            return models;
+        } catch (Exception exception) {
+            logger.error(exception.getMessage(), exception);
+            throw new Exception(exception);
+        }
+    }
+
+    @Override
     public List<Model> getModelsByBrand(Integer brandId) throws Exception {
         try {
             List<Model> models = new ArrayList<>();

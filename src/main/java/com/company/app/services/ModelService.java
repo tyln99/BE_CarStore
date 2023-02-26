@@ -8,6 +8,7 @@ public interface ModelService {
     List<Model> getModels() throws Exception;
 
     List<Model> getModelsByBrand(Integer brandId) throws Exception;
+    List<Model> searchByName(String name) throws Exception;
 
     Model getModelById(Long id) throws Exception;
 

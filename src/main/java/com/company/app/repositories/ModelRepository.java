@@ -13,4 +13,7 @@ import java.util.List;
 public interface ModelRepository extends CrudRepository<Model, Long> {
     @Query(value = "SELECT * FROM model WHERE brand_id = :brandId", nativeQuery = true)
     List<Model> findAllByBrandId(@Param("brandId") Integer brandId);
+
+    @Query(value = "SELECT * FROM model WHERE UPPER(name) LIKE %:testtest%", nativeQuery = true)
+    List<Model> searchByName(@Param("testtest") String name);
 }

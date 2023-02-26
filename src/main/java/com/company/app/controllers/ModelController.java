@@ -39,6 +39,15 @@ public class ModelController {
         }
     }
 
+    @GetMapping({"/searchbyname"})
+    public ResponseEntity<List<Model>> searchByName(@RequestParam("name") String name) {
+        try {
+            List<Model> models = modelService.searchByName(name.toUpperCase());
+            return new ResponseEntity<>(models, HttpStatus.OK);
+        } catch (Exception exception) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
     @GetMapping({"/{modelId}"})
     public ResponseEntity<Model> getModel(@PathVariable Long modelId) {
         try {
